@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="style.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<section class="header">
+		<nav>
+			<a href="index.html"><img src="assets/images/logo_transparent.png"></a>
+			<div class="nav-links" id="navLinks">
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a href="#">Bakery</a></li>
+					<li><a href="#prodcuts">Products</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+	</section>
+	<section class="typing">
+		<div class="row">
+			<div class="benefits-col-one">
+				<h1>Brady</h1>
+				<h3>The bread and butter of life.</h3>
+
+				<div class="positiontext" id="text"></div>
+
+
+				<script type="text/javascript">
+
+					// List of sentences
+					var _CONTENT = ["Our bread is made with love!", "Enjoy our fresh products!", "Relax in our bakery!"];
+
+					// Current sentence being processed
+					var _PART = 0;
+
+					// Character number of the current sentence being processed 
+					var _PART_INDEX = 0;
+
+					// Holds the handle returned from setInterval
+					var _INTERVAL_VAL;
+
+					// Element that holds the text
+					var _ELEMENT = document.querySelector("#text");
+
+					// Implements typing effect
+					function Type() {
+						var text = _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+						_ELEMENT.innerHTML = text;
+						_PART_INDEX++;
+
+						// If full sentence has been displayed then start to delete the sentence after some time
+						if (text === _CONTENT[_PART]) {
+							clearInterval(_INTERVAL_VAL);
+							setTimeout(function () {
+								_INTERVAL_VAL = setInterval(Delete, 50);
+							}, 1000);
+						}
+					}
+
+					// Implements deleting effect
+					function Delete() {
+						var text = _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+						_ELEMENT.innerHTML = text;
+						_PART_INDEX--;
+
+						// If sentence has been deleted then start to display the next sentence
+						if (text === '') {
+							clearInterval(_INTERVAL_VAL);
+
+							// If last sentence then display the first one, else move to the next
+							if (_PART == (_CONTENT.length - 1))
+								_PART = 0;
+							else
+								_PART++;
+							_PART_INDEX = 0;
+
+							// Start to display the next sentence after some time
+							setTimeout(function () {
+								_INTERVAL_VAL = setInterval(Type, 100);
+							}, 200);
+						}
+					}
+
+					// Start the typing effect on load
+					_INTERVAL_VAL = setInterval(Type, 100);
+				</script>
+			</div>
+			<div class="benefits-col">
+				<img src="assets/images/homepage.png">
+			</div>
+		</div>
+	</section>
+	<section class="text">
+		<h1>Our products</h1>
+		<h3>Our pastries are of the highest quality, made in our kitchen by the best pastry chefs. The ingredients used
+			are 100% natural and give the final product an authentic taste, which you will not be able to forget.</h3>
+	</section>
+	<section class="products" id="prodcuts">
+
+		<div class="row-second">
+			<ul>
+				<li><a href="#">Bread</a></li>
+				<li><a href="#">Sandwiches</a></li>
+				<li><a href="#">Cookies</a></li>
+			</ul>
+		</div>
+		<div class="row-third">
+			<div class="bread">
+				<img src="assets/images/firstbread.png" class="images">
+				<div class="seemore">
+					<h1>Black Bread</h1>
+					<h2>See more</h2>
+				</div>
+				<h3>Made 100% natural with our top ingredients.<br>Containing black flour!</h3>
+			</div>
+			<div class="bread">
+				<img src="assets/images/secomdbread.png" class="images">
+				<div class="seemore">
+					<h1>Potato Bread</h1>
+					<h2>See more</h2>
+				</div>
+				<h3>Made 100% natural with our top ingredients.<br>Containing potato in ingredients!</h3>
+			</div>
+			<div class="bread">
+				<img src="assets/images/thirdbread.png" class="images">
+				<div class="seemore">
+					<h1>Maya Bread</h1>
+					<h2>See more</h2>
+				</div>
+				<h3>Made 100% natural with our top ingredients.<br>Containing maya!</h3>
+			</div>
+			<div class="bread">
+				<img src="assets/images/forthbread.jfif" class="images">
+				<div class="seemore">
+					<h1>Seeds Bread</h1>
+					<h2>See more</h2>
+				</div>
+				<h3>Made 100% natural with our top ingredients.<br>Containing seeds for a better taste!</h3>
+			</div>
+			<div class="bread">
+				<img src="assets/images/fifthbread.png" class="images">
+				<div class="seemore">
+					<h1>Toast Bread</h1>
+					<h2>See more</h2>
+				</div>
+				<h3>Made 100% natural with our top ingredients.<br>Made for fresh morning toasts!</h3>
+			</div>
+		</div>
+	</section>
+	<section class="about" id="about">
+		<h1>About Us</h1>
+		<h3>We are a local bakery from Cluj-Napoca who want to give to people the best pastry products ever. Our goal is
+			to give the fresh French taste of pastry here in Romania.</h3>
+		<img src="assets/images/frame.png">
+	</section>
+	<hr>
+	<footer>
+		<div class="footer-content">
+			<h3>BRADY</h3>
+			<ul class="socials">
+				<li>
+					<a href="#">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-youtube"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-instagram"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footer-bottom">
+			<p>Copyright &copy;2022 Brady. designed by SansiroElite</p>
+		</div>
+	</footer>
+</body>
+</html>
